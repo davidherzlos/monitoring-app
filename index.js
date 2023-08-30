@@ -67,7 +67,7 @@ const unifiedServer = (req, res) => {
     })
 
     // The 'data' and 'end' events are always emitted by req,
-    // so if no payload is sent, the buffer will be empty.
+    // so if no payload is sent, the buffer will be just empty.
     req.on('end', () => {
         buffer += decoder.end()
 
@@ -114,5 +114,6 @@ const unifiedServer = (req, res) => {
 // Define a request router.
 const router = {
     'ping': handlers.ping,
-    'users': handlers.users
+    'users': handlers.users,
+    'tokens': handlers.tokens
 }
